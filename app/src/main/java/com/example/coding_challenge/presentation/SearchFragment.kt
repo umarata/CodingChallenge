@@ -11,6 +11,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.coding_challenge.R
 import com.example.coding_challenge.databinding.FragmentSearchBinding
+import com.example.coding_challenge.domain.InputValidator
+import com.example.coding_challenge.domain.InputValidatorHelper
 import com.example.coding_challenge.presentation.adapters.LongformRVAdapter
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -83,33 +85,15 @@ class SearchFragment : Fragment() {
          * observing the value of searchView
          */
         viewModel.queryMutableLiveData.observe(viewLifecycleOwner) {
-            /**
-             * trimming the entered value so that the whitespace gets ignored
-             */
-            val query = it?.trim()
-            /**
-             * clearing the list if user cleared the searchView
-             */
-            if (query.isNullOrEmpty()) {
-                longformRVAdapter.submitList(null)
-            } else {
-                /**
-                 * checking if entered value is minimum 3 characters long so fetch data
-                 */
-                if (query.length >= 3) {
-                    lifecycleScope.launchWhenStarted {
-                        viewModel.getAcromine(query)
-                    }
+            when (val input = InputValidatorHelper().validateSearchedText(it)) {
+                InputValidator.EmptyInput, InputValidator.SmallerTo3CharacterInput -> {
+                    showSnackBar(getString(R.string.please_enter_minimum_3_characters))
+                    longformRVAdapter.submitList(null)
                 }
-                /**
-                 * showing error message if entered value less than 3 characters
-                 */
-                else {
-                    Snackbar.make(
-                        binding.searchView,
-                        getString(R.string.please_enter_minimum_3_characters),
-                        Snackbar.LENGTH_LONG
-                    ).show()
+                is InputValidator.ValidInput -> {
+                    lifecycleScope.launchWhenStarted {
+                        viewModel.getAcromine(input.sf)
+                    }
                 }
             }
         }
@@ -123,9 +107,16 @@ class SearchFragment : Fragment() {
          * observing the error message mutableLiveData
          */
         viewModel.acromineErrorMutableLiveData.observe(viewLifecycleOwner) {
-            if (it != null) {
-                Snackbar.make(binding.searchView, it, Snackbar.LENGTH_LONG).show()
+            it?.let { msg ->
+                showSnackBar(msg)
+                viewModel.acromineErrorMutableLiveData.postValue(null)
             }
         }
     }
+
+    private fun showSnackBar(message: String) {
+        Snackbar.make(binding.searchView, message, Snackbar.LENGTH_LONG).show()
+    }
+
+
 }
