@@ -23,12 +23,17 @@ class SearchViewModel @Inject constructor(private val baseRepository: BaseReposi
 
     val acromineErrorMutableLiveData = MutableLiveData<String>()
 
+    val showProgress = MutableLiveData<Boolean>()
 
     suspend fun getAcromine(sf: String) {
-
+        showProgress.postValue(true)
         when (val apiResult = baseRepository.getAcromine(sf)) {
             is ApiSuccess -> {
-                acromineMutableLiveData.postValue(apiResult.data)
+                if (apiResult.data.isEmpty()) {
+                    acromineErrorMutableLiveData.postValue("No results found for \"$sf\"")
+                } else {
+                    acromineMutableLiveData.postValue(apiResult.data)
+                }
             }
             is ApiError -> {
                 val response = "${apiResult.code} ${apiResult.message}"
@@ -39,6 +44,7 @@ class SearchViewModel @Inject constructor(private val baseRepository: BaseReposi
                 acromineErrorMutableLiveData.postValue(response)
             }
         }
+        showProgress.postValue(false)
     }
 
     val queryMutableLiveData = MutableLiveData<String?>()

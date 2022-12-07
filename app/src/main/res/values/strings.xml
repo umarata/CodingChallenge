@@ -4,4 +4,5 @@
     <string name="frequency">Frequency:</string>
     <string name="since">Since:</string>
     <string name="variations">Variations are given below:</string>
+    <string name="please_enter_minimum_3_characters">Please enter minimum 3 characters</string>
 </resources>

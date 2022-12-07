@@ -13,11 +13,3 @@ interface WebService {
 
 }
 
-class AcromineRemoteDataSource(
-    private val webService: WebService, private val sf: String
-) {
-    suspend operator fun invoke(): ApiResult<ArrayList<AcromineResponse.AcromineResponseItem>> =
-        handleApi {
-            webService.getAcromine(sf)
-        }
-}

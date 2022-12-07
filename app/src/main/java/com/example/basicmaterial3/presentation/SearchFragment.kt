@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basicmaterial3.R
 import com.example.basicmaterial3.databinding.FragmentSearchBinding
 import com.example.basicmaterial3.presentation.adapters.LongformRVAdapter
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -50,10 +51,23 @@ class SearchFragment : Fragment() {
                     lifecycleScope.launchWhenStarted {
                         viewModel.getAcromine(it)
                     }
+                } else //if (it.isNotEmpty() )
+                {
+                    Snackbar.make(
+                        binding.searchView,
+                        getString(R.string.please_enter_minimum_3_characters),
+                        Snackbar.LENGTH_LONG
+                    ).show()
                 }
             }
         }
 
         binding.searchView.setOnQueryTextListener(viewModel.onQueryTextChangeListener)
+
+        viewModel.acromineErrorMutableLiveData.observe(viewLifecycleOwner) {
+            if (it != null) {
+                Snackbar.make(binding.searchView, it, Snackbar.LENGTH_LONG).show()
+            }
+        }
     }
 }
