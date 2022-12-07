@@ -4,12 +4,12 @@ import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import com.example.basicmaterial3.data.network.ApiError
+import com.example.basicmaterial3.data.network.ApiException
+import com.example.basicmaterial3.data.network.ApiSuccess
 import com.example.basicmaterial3.data.network.BaseRepository
 import com.example.basicmaterial3.domain.AcromineResponse
-import com.example.basicmaterial3.domain.printLog
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -21,13 +21,23 @@ class SearchViewModel @Inject constructor(private val baseRepository: BaseReposi
     val acromineLiveData: LiveData<ArrayList<AcromineResponse.AcromineResponseItem>?> =
         acromineMutableLiveData
 
+    val acromineErrorMutableLiveData = MutableLiveData<String>()
+
+
     suspend fun getAcromine(sf: String) {
-        try {
-            val acromine = baseRepository.getAcromine(sf)
-            printLog("acromine sf:$sf response\n$acromine", this)
-            acromineMutableLiveData.postValue(acromine)
-        } catch (e: java.lang.Exception) {
-            printLog("error:$e", this)
+
+        when (val apiResult = baseRepository.getAcromine(sf)) {
+            is ApiSuccess -> {
+                acromineMutableLiveData.postValue(apiResult.data)
+            }
+            is ApiError -> {
+                val response = "${apiResult.code} ${apiResult.message}"
+                acromineErrorMutableLiveData.postValue(response)
+            }
+            is ApiException -> {
+                val response = "${apiResult.e.message}"
+                acromineErrorMutableLiveData.postValue(response)
+            }
         }
     }
 

@@ -5,5 +5,5 @@ import javax.inject.Inject
 class BaseRepository @Inject constructor(
     private val webService: WebService
 ) {
-    suspend fun getAcromine(sf: String) = webService.getAcromine(sf)
+    suspend fun getAcromine(sf: String) = AcromineRemoteDataSource(webService, sf).invoke()
 }

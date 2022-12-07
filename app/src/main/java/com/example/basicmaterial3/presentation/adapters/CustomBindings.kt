@@ -5,8 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basicmaterial3.domain.AcromineResponse
 
-@BindingAdapter("app:variations")
-fun setCountryItems(rv: RecyclerView, list: List<AcromineResponse.AcromineResponseItem.Lf.Var?>) {
+@BindingAdapter("variations")
+fun setVariations(rv: RecyclerView, list: List<AcromineResponse.AcromineResponseItem.Lf.Var?>) {
     val variationRVAdapter = VariationRVAdapter()
     rv.adapter = variationRVAdapter
     rv.layoutManager = LinearLayoutManager(rv.context)
