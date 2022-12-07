@@ -1,8 +1,8 @@
-package com.example.basicmaterial3.presentation.viewholders
+package com.example.coding_challenge.presentation.viewholders
 
 import androidx.recyclerview.widget.RecyclerView
-import com.example.basicmaterial3.databinding.VariationsItemsBinding
-import com.example.basicmaterial3.domain.AcromineResponse
+import com.example.coding_challenge.databinding.VariationsItemsBinding
+import com.example.coding_challenge.domain.AcromineResponse
 
 class VariationsVH(private val variationsItemsBinding: VariationsItemsBinding) :
     RecyclerView.ViewHolder(variationsItemsBinding.root) {

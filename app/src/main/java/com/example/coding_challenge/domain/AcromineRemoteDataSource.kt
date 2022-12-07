@@ -1,8 +1,8 @@
-package com.example.basicmaterial3.domain
+package com.example.coding_challenge.domain
 
-import com.example.basicmaterial3.data.network.ApiResult
-import com.example.basicmaterial3.data.network.WebService
-import com.example.basicmaterial3.data.network.handleApi
+import com.example.coding_challenge.data.network.ApiResult
+import com.example.coding_challenge.data.network.WebService
+import com.example.coding_challenge.data.network.handleApi
 
 /**
  * This class AcromineRemoteDataSource is acting as a remote datasource for repository and it calls a function webService.getAcromine(sf) from WebService

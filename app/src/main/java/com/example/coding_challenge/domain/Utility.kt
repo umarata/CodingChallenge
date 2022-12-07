@@ -1,7 +1,7 @@
-package com.example.basicmaterial3.domain
+package com.example.coding_challenge.domain
 
 import android.util.Log
-import com.example.basicmaterial3.BuildConfig
+import com.example.coding_challenge.BuildConfig
 
 /**
  * this function is created to print the log only when the app runs in debug mode

@@ -1,4 +1,4 @@
-package com.example.basicmaterial3
+package com.example.coding_challenge
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

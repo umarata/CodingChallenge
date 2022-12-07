@@ -1,4 +1,4 @@
-package com.example.basicmaterial3.data.network
+package com.example.coding_challenge.data.network
 
 import retrofit2.HttpException
 import retrofit2.Response

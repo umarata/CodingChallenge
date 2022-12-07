@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.basicmaterial3'
+    namespace 'com.example.coding_challenge'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.basicmaterial3"
+        applicationId "com.example.coding_challenge"
         minSdk 21
         targetSdk 32
         versionCode 1
@@ -41,32 +41,43 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures {
+        //enabling view binding feature
         viewBinding true
+        //enabling view binding feature
         dataBinding true
     }
 }
 
 dependencies {
 
+    // Kotlin
     implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
 
+    //ui
+    implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.8.0-alpha03'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
+    //navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+    //livedata
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+
+    //viewmodel
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
 
+    //data binding
     implementation 'androidx.databinding:databinding-runtime:7.3.1'
 
+    //testing
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
+    //hilt and dagger
     implementation "com.google.dagger:hilt-android:2.44.2"
     kapt "com.google.dagger:hilt-compiler:2.44.2"
 

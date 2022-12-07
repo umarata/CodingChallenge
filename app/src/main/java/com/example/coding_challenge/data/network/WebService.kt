@@ -1,6 +1,6 @@
-package com.example.basicmaterial3.data.network
+package com.example.coding_challenge.data.network
 
-import com.example.basicmaterial3.domain.AcromineResponse
+import com.example.coding_challenge.domain.AcromineResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

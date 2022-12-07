@@ -1,4 +1,4 @@
-package com.example.basicmaterial3.presentation
+package com.example.coding_challenge.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.basicmaterial3.R
-import com.example.basicmaterial3.databinding.FragmentSearchBinding
-import com.example.basicmaterial3.presentation.adapters.LongformRVAdapter
+import com.example.coding_challenge.R
+import com.example.coding_challenge.databinding.FragmentSearchBinding
+import com.example.coding_challenge.presentation.adapters.LongformRVAdapter
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 

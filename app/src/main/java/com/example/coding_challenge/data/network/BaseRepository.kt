@@ -1,6 +1,6 @@
-package com.example.basicmaterial3.data.network
+package com.example.coding_challenge.data.network
 
-import com.example.basicmaterial3.domain.AcromineRemoteDataSource
+import com.example.coding_challenge.domain.AcromineRemoteDataSource
 import javax.inject.Inject
 
 /**

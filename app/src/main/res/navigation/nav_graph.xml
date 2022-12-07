@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.basicmaterial3.presentation.SearchFragment"
+        android:name="com.example.coding_challenge.presentation.SearchFragment"
         android:label="Coding Challenge"
         tools:layout="@layout/fragment_search" />
 </navigation>

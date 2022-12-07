@@ -1,4 +1,4 @@
-package com.example.basicmaterial3.data.network
+package com.example.coding_challenge.data.network
 
 /**
  * Api result sealed interface created to handle all three states

@@ -1,4 +1,4 @@
-package com.example.basicmaterial3.domain
+package com.example.coding_challenge.domain
 
 
 import android.os.Parcelable

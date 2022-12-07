@@ -6,7 +6,7 @@
         <import type="android.view.View" />
         <variable
             name="searchViewModel"
-            type="com.example.basicmaterial3.presentation.SearchViewModel" />
+            type="com.example.coding_challenge.presentation.SearchViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,20 +17,20 @@
             android:id="@+id/searchView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
+            android:paddingStart="@dimen/dp8"
+            android:paddingEnd="@dimen/dp8"
             android:background="@drawable/search_background"
             android:iconifiedByDefault="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:queryHint="enter min 3 char e.g. HMM" />
+            app:queryHint="@string/enter_min_3_char_searchview_hint" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/dp16"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

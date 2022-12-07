@@ -1,14 +1,14 @@
-package com.example.basicmaterial3.presentation
+package com.example.coding_challenge.presentation
 
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.basicmaterial3.data.network.ApiError
-import com.example.basicmaterial3.data.network.ApiException
-import com.example.basicmaterial3.data.network.ApiSuccess
-import com.example.basicmaterial3.data.network.BaseRepository
-import com.example.basicmaterial3.domain.AcromineResponse
+import com.example.coding_challenge.data.network.ApiError
+import com.example.coding_challenge.data.network.ApiException
+import com.example.coding_challenge.data.network.ApiSuccess
+import com.example.coding_challenge.data.network.BaseRepository
+import com.example.coding_challenge.domain.AcromineResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.net.UnknownHostException
 import javax.inject.Inject

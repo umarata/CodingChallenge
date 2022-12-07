@@ -1,4 +1,4 @@
-package com.example.basicmaterial3.presentation
+package com.example.coding_challenge.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,8 +8,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.basicmaterial3.R
-import com.example.basicmaterial3.databinding.ActivityMainBinding
+import com.example.coding_challenge.R
+import com.example.coding_challenge.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

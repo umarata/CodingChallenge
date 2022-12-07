@@ -1,4 +1,4 @@
-package com.example.basicmaterial3
+package com.example.coding_challenge
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

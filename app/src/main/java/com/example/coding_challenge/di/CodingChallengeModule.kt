@@ -1,7 +1,7 @@
-package com.example.basicmaterial3.di
+package com.example.coding_challenge.di
 
-import com.example.basicmaterial3.BuildConfig
-import com.example.basicmaterial3.data.network.WebService
+import com.example.coding_challenge.BuildConfig
+import com.example.coding_challenge.data.network.WebService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

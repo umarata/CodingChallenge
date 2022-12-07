@@ -1,13 +1,13 @@
-package com.example.basicmaterial3.presentation.adapters
+package com.example.coding_challenge.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.basicmaterial3.databinding.VariationsItemsBinding
-import com.example.basicmaterial3.domain.AcromineResponse
-import com.example.basicmaterial3.presentation.viewholders.VariationsVH
+import com.example.coding_challenge.databinding.VariationsItemsBinding
+import com.example.coding_challenge.domain.AcromineResponse
+import com.example.coding_challenge.presentation.viewholders.VariationsVH
 
 
 class VariationRVAdapter : RecyclerView.Adapter<VariationsVH>() {
