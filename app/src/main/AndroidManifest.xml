@@ -6,7 +6,7 @@
 
 
     <application
-        android:name=".Material3App"
+        android:name=".CodingChallengeApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"

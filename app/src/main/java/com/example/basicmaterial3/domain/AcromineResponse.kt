@@ -5,6 +5,9 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
+/**
+ * Response dataclass
+ */
 class AcromineResponse : ArrayList<AcromineResponse.AcromineResponseItem>() {
     @Parcelize
     data class AcromineResponseItem(

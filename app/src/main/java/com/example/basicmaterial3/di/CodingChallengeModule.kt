@@ -15,11 +15,14 @@ import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
-object Material3Module {
+object CodingChallengeModule {
 
-    private const val BASE_URL = "http://www.nactem.ac.uk/" //BuildConfig.BASE_URL
+    private const val BASE_URL = BuildConfig.BASE_URL
     private const val timeout = 5 * 1000L
 
+    /**
+     * This function providesHttpLoggingInterceptor() provides the singleton reference for HttpLoggingInterceptor
+     */
     @Singleton
     @Provides
     fun providesHttpLoggingInterceptor() = HttpLoggingInterceptor()
@@ -27,12 +30,17 @@ object Material3Module {
             level = HttpLoggingInterceptor.Level.BODY
         }
 
-
+    /**
+     * This function okHttpInstance(httpLoggingInterceptor: HttpLoggingInterceptor) provides the singleton reference for OkHttpClient
+     */
     @Singleton
     @Provides
     fun okHttpInstance(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         val builder = OkHttpClient
             .Builder()
+        /**
+         * setting HttpLoggingInterceptor only when app is running in debug mode
+         */
         if (BuildConfig.DEBUG) {
             builder.addInterceptor(httpLoggingInterceptor)
         }
@@ -43,6 +51,9 @@ object Material3Module {
             .build()
     }
 
+    /**
+     * This function retrofitInstance(okHttpClient: OkHttpClient) provides the singleton reference for Retrofit
+     */
     @Singleton
     @Provides
     fun retrofitInstance(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
@@ -51,6 +62,9 @@ object Material3Module {
         .client(okHttpClient)
         .build()
 
+    /**
+     * This function provideApiService(retrofit: Retrofit) provides the singleton reference for WebService
+     */
     @Singleton
     @Provides
     fun provideApiService(retrofit: Retrofit): WebService = retrofit.create(WebService::class.java)
